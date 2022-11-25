@@ -4,7 +4,19 @@
 
 @layer base {
   body {
-    @apply bg-slate-700;
+    @apply bg-slate-300;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl font-semibold;
+  }
+
+  input, button {
+    @apply text-black;
+  }
+
+  main {
+    @apply w-[95%] sm:w-[80%] grid place-items-center gap-y-10 mb-5 sm:my-10 mx-auto;
   }
 
   input::-webkit-outer-spin-button,
@@ -16,5 +28,92 @@
   /* Firefox */
   input[type=number] {
     -moz-appearance: textfield;
+  }
+}
+
+@layer components {
+  .header-container {
+     @apply relative w-full mt-10 sm:mb-16 flex gap-x-5 justify-evenly items-center;
+  }
+
+  .box-container {
+     @apply w-fit pr-5 sm:pr-0 sm:absolute right-3 sm:top-6 sm:-translate-y-1/2 flex flex-col gap-y-3;
+  }
+
+  .box-container > li {
+     @apply grid grid-cols-2 w-20;
+  }
+  
+  .seats-container {
+     @apply w-fit h-full grid grid-cols-3 place-items-center gap-x-8 sm:gap-x-10 gap-y-2.5 sm:gap-y-4;
+  }
+
+  .seats-group {
+     @apply flex gap-x-2.5 sm:gap-x-4;
+  }
+
+  .seat {
+     @apply grid place-items-center w-[28px] h-[25px] xs:w-[42px] xs:h-[33px] text-sm xs:text-base text-center cursor-pointer rounded-sm xs:rounded text-white;
+  }
+
+  .form-container {
+     @apply grid place-items-center gap-y-4;
+  }
+
+  .input-passengers {
+     @apply text-input-size outline-none focus:ring-2 ring-emerald-400 rounded placeholder:text-slate-700;
+  }
+
+  .btn-primary {
+     @apply text-input-size bg-emerald-400 hover:bg-emerald-500 transition-bg rounded-md cursor-pointer text-xl;
+  }
+
+  .booked-seat {
+     @apply bg-emerald-400 text-black font-semibold;
+  }
+
+  .occupied-seat {
+     @apply bg-emerald-400 inline-block w-full h-full flex items-center justify-center;
+  }
+
+  .occupied-seat > svg {
+     @apply fill-black;
+  }
+}
+
+@layer utilities {
+  .text-input-size {
+     @apply w-44 px-2 py-1.5;
+  }
+  
+  .transition-bg {
+     @apply transition-colors duration-300;
+  }
+
+  .bg-window {
+     @apply transition-bg bg-yellow-600 hover:bg-yellow-600/70;
+  }
+
+  .bg-aisle {
+     @apply transition-bg bg-blue-500 hover:bg-blue-500/70;
+  }
+  
+  .bg-middle {
+     @apply transition-bg bg-red-400 hover:bg-red-400/70;
+  }
+
+  .seat-box {
+     @apply inline-block w-7 h-7 rounded mr-1 place-self-center;
+  }
+
+  .aisle-box {
+    @apply seat-box bg-aisle;
+  }
+
+  .window-box {
+    @apply seat-box bg-window;
+  }
+  .middle-box {
+    @apply seat-box bg-middle;
   }
 }
